@@ -5,9 +5,12 @@
  */
 package jsconvertor27oct2019;
 
+import java.awt.BorderLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 /**
  *
@@ -20,7 +23,22 @@ public class JSConvertor27oct2019 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JFrame fereastra = new JFrame("Convertor");
+        // Create and set up a frame window
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame fereastra = new JFrame("Convertor Celsius to Fahrenheit");
+        fereastra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Set the panel to add components
+        JPanel panel = new JPanel();
+        
+        BoxLayout boxlayout = new BoxLayout(panel, BoxLayout.Y_AXIS);
+        
+        panel.setLayout(boxlayout);
+        
+        panel.setBorder(new EmptyBorder(new Insets(200, 250, 200, 250)));
+        
+        JLabel desc_lb = new JLabel("Convert Celsius to Fahrenheit");
+        //panel.add(desc_lb, BorderLayout.PAGE_START);
         
         JButton btexit = new JButton("Inchide");
         btexit.addActionListener(new ActionListener(){
@@ -29,9 +47,14 @@ public class JSConvertor27oct2019 {
             }
         });
         btexit.setBounds(130, 100, 100, 40);
-        fereastra.add(btexit);
         
-        fereastra.setSize(400, 300);
+        panel.add(desc_lb);
+        panel.add(btexit);
+        
+        //fereastra.setLayout(new BorderLayout());
+        fereastra.add(panel);
+        fereastra.pack();
+        //fereastra.setSize(400, 300);
         fereastra.setLayout(null);
         fereastra.setVisible(true);
     }
